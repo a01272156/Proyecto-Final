@@ -1,0 +1,37 @@
+{{outlet}}
+
+<div class="container">
+  <h2>Inventario</h2>
+  <p>
+
+  </p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Agente de Ventas</th>
+        <th>Provedor</th>
+        <th>Fecha de Elaboracion</th>
+        <th>Telefono</th>
+        <th>Estatus</th>
+        <th>Productos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each pedidos as |item|}}
+      <tr>
+	<td>{{item.agente}}</td>
+	<td>{{item.provedor}}</td>
+	<td>{{item.fechaElabo}}</td>
+	<td>{{item.telefono}}</td>
+	<td>{{item.status}}</td>
+	<td>{{textarea rows="5" cols="40" value=item.contenido disabled='disabled'}}</td>
+	</tr>
+	{{else}}
+	<tr>
+	<p>No se encontraron Productos</p>
+	</tr>
+{{/each}}
+    </tbody>
+  </table>
+  <br>
+  </div>

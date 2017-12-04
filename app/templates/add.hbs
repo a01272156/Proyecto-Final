@@ -1,0 +1,28 @@
+{{outlet}}
+
+<div class="container">
+	<h2>Agregar al Inventario</h2>
+	<div class="container">
+<form{{action 'submit' (moment-format date 'DD/MMM/YYYY HH:mm:ss' inputFormat) this.usuario this.comentario on='submit'}}>
+<h4>Usuario</h4>
+<select onchange={{action (mut this.usuario) value="target.value"}}>
+ <option disabled selected> --Usuario-- </option>
+{{#each usuarios as |item|}}
+<option value='{{item.id}}'>{{item.nombre}} {{item.apellidoPat}} {{item.apellidoMat}}</option>
+{{/each}}
+</select>
+<br>
+<br>
+{{field-object for="Comentario" type="text" value=this.comentario}}
+<br>
+{{#each productos as |item|}}
+	<h4>{{item.nombre}}, {{item.marca}}</h4>
+	<h5>   Cantidad Actual: {{item.cantidad}} Producto a agregar: {{input value=item.agregar}}</h5>
+{{/each}}
+<button>Guardar</button>
+</form>
+</div>
+</div>
+<footer>
+<br><br>
+</footer>

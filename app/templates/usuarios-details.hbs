@@ -1,0 +1,72 @@
+{{outlet}}
+
+<div class='container'>
+	<h1>Información Personal</h1>
+	<div align="left" width=40% style="float:left; margin:30px">
+	<img width='350' height='270' src={{model.picurl}}>
+	</div>
+	<div align="rigth" width=50% style="float:left; margin:30px">
+	<h3>Nombre(s): <b>{{model.nombre}}</b></h3>
+	<h3>Apellido Paterno: <b>{{model.apellidoPat}}</b></h3>
+	<h3>Apellido Materno: <b>{{model.apellidoMat}}</b></h3>
+	<h3>Telefono: <b>{{model.telefono}}</b></h3>
+	<h3>Tipo de Usuario: <b>{{model.tipoUser}}</b></h3>
+	{{#if model.activo}}
+	<h3>Estado: <b style="color:green;">Activo</b></h3>
+	{{else}}
+	<h3>Estado: <b style="color:red;">Despedido</b></h3>
+	{{/if}}
+	</div>
+	<div class='container' width=100% style="clear:both; margin:30px">
+	<h3>Direccion: <b>{{model.direccion}}</b></h3>
+	<h3>CURP: <b>{{model.curp}}</b></h3>
+	<h3>Fecha De Nacimiento: <b>{{model.nacimiento}}</b></h3>
+	<h3>Usuario: <b>{{model.usuario}}</b></h3>
+	</div>
+	
+</div>
+<div class='container' id='div-show'>
+	<h1>Logs</h1>
+	<div class='container'>
+	<h3>Retiros de Producto</h3>
+	<table class="table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+{{#each outs as |item|}}
+	<tr>
+	<td>{{item.fecha}}</td>
+	<td>{{textarea rows="5" cols="80" value=item.productos disabled='disabled'}}</td>
+	</tr>
+	{{else}}
+	<p>No hay Registros</p>
+{{/each}}
+</tbody>
+</table>
+</div>
+<div class='container'>
+	<h3>Entradas de Producto</h3>
+	<table class="table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+{{#each entrys as |item|}}
+	<tr>
+	<td>{{item.fecha}}</td>
+	<td>{{textarea rows="5" cols="80" value=item.productos disabled='disabled'}}</td>
+	</tr>
+	{{else}}
+	<p>No hay Registros</p>
+{{/each}}
+</tbody>
+</table>
+</div>
+</div>

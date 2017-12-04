@@ -1,0 +1,37 @@
+<div class='container'>
+<br>
+<h4>Recibir Pedido</h4>
+<div style="width:80%; margin:20px;">
+<form{{action 'submit' (moment-format date 'DD/MMM/YYYY HH:mm:ss' inputFormat) this.usuario this.comentario this.pedido this.valEstatus on='submit'}}>
+<h4>Usuario</h4>
+<select onchange={{action (mut this.usuario) value="target.value"}}>
+ <option disabled selected> --Usuario-- </option>
+{{#each usuarios as |item|}}
+<option value='{{item.id}}'>{{item.nombre}} {{item.apellidoPat}} {{item.apellidoMat}}</option>
+{{/each}}
+</select>
+<h4>Pedido</h4>
+<select onchange={{action (mut this.pedido) value="target.value"}}>
+ <option disabled selected> --Pedido-- </option>
+{{#each pedidos as |item|}}
+<option value='{{item.id}}'>{{item.numeroPedi}}</option>
+{{/each}}
+</select>
+<h4>Estado del Pedido</h4>
+<select onchange={{action (mut this.valEstatus) value="target.value"}}>
+ <option disabled selected> --Estado del Pedido-- </option>
+<option value='Completo'>Completo</option>
+<option value='Incompleto'>Incompleto</option>
+</select>
+<br>
+<br>
+{{field-object for="Comentario" type="text" value=this.comentario}}
+<br>
+{{#each productos as |item|}}
+	<h4>{{item.nombre}}, {{item.marca}}</h4>
+	<h5>   Cantidad Actual: {{item.cantidad}} Producto a agregar: {{input value=item.agregar}}</h5>
+{{/each}}
+<button>Guardar</button>
+</form>
+</div>
+</div>

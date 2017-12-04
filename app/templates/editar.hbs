@@ -1,0 +1,50 @@
+<div class='container'>
+<br>
+{{#if permiso}}
+<h4>Editar Usuario</h4>
+<div style="width:80%; margin:20px;">
+<form {{action 'save' model on='submit'}}>
+	<h4>Fotografia</h4>
+	{{profile-pic model=model initialImg=model.picurl didChange=(action 'changePicURl1')}}
+	<h4>Nombre(s)</h4>
+	{{input  type="text" value=model.nombre}}
+	<h4>Apellido Paterno</h4>
+	{{input  type="text" value=model.apellidoPat}}
+	<h4>Apellido Materno</h4>
+	{{input  type="text" value=model.apellidoMat}}
+	<h4>Tipo de Usuario</h4>
+	<select onchange={{action (mut this.usuario) value="target.value"}}>
+ 	<option disabled selected> --Tipo de Usuario-- </option>
+	<option value='Administrador'>Administrador</option>
+	<option value='Gerente'>Gerente</option>
+	<option value='Empleado'>Empleado</option>
+	</select>
+	<h4>Direccion</h4>
+	{{textarea rows="3" cols="50" value=model.direccion}}
+	<h4>Telefono</h4>
+	{{input  type="text" value=model.telefono}}
+	<h4>CURP</h4>
+	{{input  type="text" value=model.curp}}
+	<h4>Fecha de Nacimiento</h4>
+	{{input  type="date" value=model.nacimiento}}
+	<br>
+	<br>
+	{{!-- {{field-object for="Tipo de Usuario" type="select" value=model.tipoUser}} --}}
+	<button>Gruardar</button>
+</form>
+</div>
+{{else}}
+<div class='container'>
+	<h3>Usuario y contraseña de Administrador para Realizar Cambios</h3>
+<form {{action 'autorizarUsuario' this.usuario this.password on='submit'}}>
+	<h5>Usuario</h5>
+	{{input  type="text" value=this.usuario}}
+	<h5>Contraseña</h5>
+	{{input  type="password" value=this.password}}
+	<br>
+	<br>
+	<button>Gruardar</button>
+</form>
+</div>
+{{/if}}
+</div>

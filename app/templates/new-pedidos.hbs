@@ -1,0 +1,24 @@
+<div class='container'>
+<br>
+<h4>Nuevo Pedido</h4>
+<div style="width:80%; margin:20px;">
+<form {{action 'save' (moment-format date 'DD/MMM/YYYY HH:mm:ss' inputFormat) model this.usuarioRealizo on='submit'}}>
+	<h5>Usuario que Eleboro</h5>
+	<select onchange={{action (mut this.usuarioRealizo) value="target.value"}}>
+ 	<option disabled selected> --Usuario-- </option>
+	{{#each usuarios as |item|}}
+	<option value='{{item.id}}'>{{item.nombre}} {{item.apellidoPat}} {{item.apellidoMat}}</option>
+	{{/each}}
+	</select>
+	{{field-object for="Provedor" type="text" value=model.provedor}}
+	{{field-object for="Agente de Ventas" type="text" value=model.agente}}
+	{{field-object for="Telefono del Agente" type="text" value=model.telefono}}
+	{{field-object for="Costo" type="text" value=model.costo}}
+	{{field-object for="Obserbaciones" type="text" value=model.descripcion}}
+	{{field-object for="Productos" type="textarea" value=model.contenido}}
+	
+	
+	<button>Guardar</button>
+</form>
+</div>
+</div>

@@ -1,0 +1,63 @@
+{{outlet}}
+
+<div class="container">
+	<h2>Retirar del Inventario</h2>
+	<p>Solo se pueden retirar hasta '5' Productos diferentes por Trabajador</p>
+	<div class="container">
+<form{{action 'submit' (moment-format date 'DD/MMM/YYYY HH:mm:ss' inputFormat) this.producto1 this.producto2 this.producto3 this.producto4 this.producto5 this.cantidad1 this.cantidad2 this.cantidad3 this.cantidad4 this.cantidad5 this.usuario on='submit'}}>
+<h5>Usuario</h5>
+<select onchange={{action (mut this.usuario) value="target.value"}}>
+ <option disabled selected> --Usuario-- </option>
+{{#each usuarios as |item|}}
+<option value='{{item.id}}'>{{item.nombre}} {{item.apellidoPat}} {{item.apellidoMat}}</option>
+{{/each}}
+</select>
+<br>
+<br>
+<select onchange={{action (mut this.producto1) value="target.value"}}>
+ <option disabled selected> --Producto-- </option>
+{{#each productos as |item|}}
+<option value='{{item.id}}'>{{item.nombre}}, {{item.marca}} -- Disponibles -- {{item.cantidad}} {{item.unidades}}s</option>
+{{/each}}
+</select>
+{{field-object for="Cantidad de Producto a Retirar 1" type="text" value=this.cantidad1}}
+
+<select onchange={{action (mut this.producto2) value="target.value"}}>
+ <option disabled selected> --Producto-- </option>
+{{#each productos as |item|}}
+<option value='{{item.id}}'>{{item.nombre}}, {{item.marca}} -- Disponibles -- {{item.cantidad}} {{item.unidades}}s</option>
+{{/each}}
+</select>
+{{field-object for=" Cantidad de Producto a Retirar 2" type="text" value=this.cantidad2}}
+
+<select onchange={{action (mut this.producto3) value="target.value"}}>
+ <option disabled selected> --Producto-- </option>
+{{#each productos as |item|}}
+<option value='{{item.id}}'>{{item.nombre}}, {{item.marca}} -- Disponibles -- {{item.cantidad}} {{item.unidades}}s</option>
+{{/each}}
+</select>
+{{field-object for="Cantidad de Producto a Retirar 3" type="text" value=this.cantidad3}}
+
+<select onchange={{action (mut this.producto4) value="target.value"}}>
+ <option disabled selected> --Producto-- </option>
+{{#each productos as |item|}}
+<option value='{{item.id}}'>{{item.nombre}}, {{item.marca}} -- Disponibles -- {{item.cantidad}} {{item.unidades}}s</option>
+{{/each}}
+</select>
+{{field-object for="Cantidad de Producto a Retirar 4" type="text" value=this.cantidad4}}
+
+<select onchange={{action (mut this.producto5) value="target.value"}}>
+ <option disabled selected> --Producto-- </option>
+{{#each productos as |item|}}
+<option value='{{item.id}}'>{{item.nombre}}, {{item.marca}} -- Disponibles -- {{item.cantidad}} {{item.unidades}}s</option>
+{{/each}}
+</select>
+{{field-object for="Cantidad de Producto a Retirar 5" type="text" value=this.cantidad5}}
+
+<button>Guardar</button>
+</form>
+</div>
+</div>
+<footer>
+<br><br>
+</footer>

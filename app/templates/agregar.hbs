@@ -1,0 +1,12 @@
+<br>
+<div style="width:80%; margin:20px;">
+	<form {{action 'submit' model on='submit'}}>
+    {{field-object for="Nombre" type="text" value=model.nombre}}
+    {{field-object for="Marca" type="text" value=model.marca}}
+    {{field-object for="Unidades ('Unidad Minima de Medición')" type="text" value=model.unidades}}
+    {{field-object for="Minimo aceptable (Uso minimo por día)" type="text" value=model.minAceptable}}
+    {{field-object for="Comentario" type="textarea" value=model.comentario}}
+    
+	<button>Agregar</button>
+	</form>
+</div>

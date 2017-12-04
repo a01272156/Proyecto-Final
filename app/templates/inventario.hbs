@@ -1,0 +1,35 @@
+{{outlet}}
+
+<div class="container">
+  <h2>Inventario</h2>
+  <p>
+
+  </p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Marca</th>
+        <th>Cantidad</th>
+        <th>Unidades</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each productos as |item|}}
+      <tr>
+	<td>{{item.nombre}}</td>
+	<td>{{item.marca}}</td>
+	<td>{{item.cantidad}}</td>
+	<td>{{item.unidades}}</td>
+	</tr>
+	{{else}}
+	<tr>
+	<p>No se encontraron Productos</p>
+	</tr>
+{{/each}}
+    </tbody>
+  </table>
+  <br>
+  <button{{action 'nuevo'}}>Nuevo Producto</button>
+</div>
+

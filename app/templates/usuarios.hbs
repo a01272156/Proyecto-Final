@@ -1,0 +1,36 @@
+{{outlet}}
+
+<div id ='div-show'>
+</div>
+<div class='container'>
+	<h4>Lista de Empleados</h4>
+	<table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Estado</th>
+        <th>Detalles</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+{{#each usuarios as |item|}}
+<tr>
+	<td>{{item.nombre}}</td>
+	<td>{{item.apellidoPat}}</td>
+	<td>{{item.apellidoMat}}</td>
+  {{#if item.activo}}
+  <h6 style="color:green;">Activo</h6>
+  {{else}}
+  <h6 style="color:red;">Despedido</h6>
+  {{/if}}
+	<td><button{{action 'siguiente' item.id}}>Ir a detalles</button></td>
+  <td><button{{action 'siguienteEd' item.id class="btn"}}>Editar</button>
+	</td>
+	</tr>
+{{/each}}
+</tbody>
+</table>
+</div>

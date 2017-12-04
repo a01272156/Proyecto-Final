@@ -1,0 +1,22 @@
+<div class='container'>
+<br>
+<h4>Nuevo Usuario</h4>
+<div style="width:80%; margin:20px;">
+<form {{action 'save' model model.usuario on='submit'}}>
+	<h4>Fotografia</h4>
+	{{profile-pic model=model initialImg=model.picurl didChange=(action 'changePicURl')}}
+	
+	{{field-object for="Nombre(s)" type="text" value=model.nombre}}
+	{{field-object for="Apellido Paterno" type="text" value=model.apellidoPat}}
+	{{field-object for="Apellido Materno" type="text" value=model.apellidoMat}}
+	{{field-object for="Dirección" type="text" value=model.direccion}}
+	{{field-object for="telefono" type="text" value=model.telefono}}
+	{{field-object for="curp" type="text" value=model.curp}}
+	{{field-object for="Fecha de nacimiento" type="date" value=model.nacimiento}}
+	{{!-- {{field-object for="Tipo de Usuario" type="select" value=model.tipoUser}} --}}
+	{{field-object for="usuario" type="text" value=model.usuario}}
+	{{field-object for="Password" type="password" value=model.password}}
+	<button>Guardar</button>
+</form>
+</div>
+</div>

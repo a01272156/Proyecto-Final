@@ -1,0 +1,58 @@
+{{outlet}}
+<div class='container'>
+<div class='container'>
+	<h3>Retiros de Producto</h3>
+	<table class="table">
+    <thead>
+      <tr>
+        <th>Empleado</th>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+        <th>comentario</th>
+      </tr>
+    </thead>
+    <tbody>
+{{#each outs as |item|}}
+	<tr>
+	<td>{{item.autorizo}}</td>
+	<td>{{item.fecha}}</td>
+	<td>{{textarea rows="5" cols="60" value=item.productos disabled='disabled'}}</td>
+	<td>{{textarea rows="5" cols="20" value=item.comentario disabled='disabled'}}</td>
+	</tr>
+	{{else}}
+	<p>No hay Registros</p>
+{{/each}}
+</tbody>
+</table>
+</div>
+<div class='container'>
+	<h3>Introducción de Producto</h3>
+	<table class="table">
+    <thead>
+      <tr>
+        <th>Empleado</th>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+        <th>comentario</th>
+      </tr>
+    </thead>
+    <tbody>
+{{#each entrys as |item|}}
+	<tr>
+	<td>{{item.autorizo}}</td>
+	<td>{{item.fecha}}</td>
+	<td>{{textarea rows="5" cols="60" value=item.productos disabled='disabled'}}</td>
+	<td>{{textarea rows="5" cols="20" value=item.comentario disabled='disabled'}}</td>
+	</tr>
+	{{else}}
+	<p>No hay Registros</p>
+{{/each}}
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+<br>
+<br>
+<br>
+</footer>
